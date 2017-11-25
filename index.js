@@ -2,12 +2,12 @@ require('dotenv').config()
 
 const Discord = require('discord.js')
 const client = new Discord.Client()
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000
 
 app.get('/', function (req, res) {
   res.redirect('https://github.com/lohs-software-club/locs-discord')
@@ -15,12 +15,12 @@ app.get('/', function (req, res) {
 
 // pings server every 15 minutes to prevent dynos from sleeping
 setInterval(() => {
-  require('https').get('https://warm-anchorage-97836.herokuapp.com/');
+  require('https').get('https://warm-anchorage-97836.herokuapp.com/')
 }, 900000)
 
 app.listen(port, () => {
   // will echo 'Our app is running on http://localhost:5000 when run locally'
-  console.log('Our app is running on http://localhost:' + port);
+  console.log('Our app is running on http://localhost:' + port)
 })
 
 /**
