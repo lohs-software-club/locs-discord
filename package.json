@@ -1,0 +1,16 @@
+{
+  "name": "LOCS-Discord",
+  "version": "0.0.1",
+  "description": "The Discord bot for the LOHS CS Club",
+  "main": "index.js",
+  "author": "Nick DeGroot <contact@nbdeg.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "dotenv": "^4.0.0",
+    "standard": "^10.0.3"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
