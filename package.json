@@ -8,6 +8,7 @@
   "dependencies": {
     "discord.js": "^11.2.1",
     "dotenv": "^4.0.0",
+    "express": "^4.16.2",
     "standard": "^10.0.3"
   },
   "scripts": {
