@@ -2,8 +2,14 @@ require('dotenv').config()
 
 const Discord = require('discord.js')
 const client = new Discord.Client()
+
+const GitHubApi = require('github')
+const github = new GitHubApi()
+
 const express = require('express')
 const app = express()
+
+/* WEB SERVER */
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -116,6 +122,28 @@ client.on('message', message => {
             if (role.name.substr(-1) === '*') { acceptableRoles.push(role.name.slice(0, -1)) }
           })
           replyToMessage('Acceptable roles: \n' + acceptableRoles.join('\n'), message)
+        } else {
+          replyToMessage('Please use #bot-spam', message)
+        }
+        break
+      } case 'github': {
+        if (message.channel.name === 'bot-spam') {
+          github.authenticate({
+            type: 'token',
+            token: process.env.GITHUB_TOKEN
+          })
+
+          let user = checkedMessage[1]
+          github.orgs.addOrgMembership({
+            org: 'lohs-software-club',
+            username: user,
+            role: 'member'
+          })
+          .then(() => { replyToMessage('GitHub user ' + user + ' added to the org!', message) })
+          .catch((err) => {
+            console.log(err)
+            replyToMessage('Something went wrong: ' + err, message)
+          })
         } else {
           replyToMessage('Please use #bot-spam', message)
         }
