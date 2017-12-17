@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 
 // pings server every 15 minutes to prevent dynos from sleeping
 setInterval(() => {
-  require('https').get('https://warm-anchorage-97836.herokuapp.com/')
+  require('https').get('https://warm-thicket-74814.herokuapp.com/')
 }, 900000)
 
 app.listen(port, () => {
