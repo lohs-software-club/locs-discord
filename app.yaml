@@ -1,0 +1,13 @@
+runtime: nodejs
+env: flex
+
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+env_variables:
+  DISCORD_TOKEN: "MzI2MDUxMDQ4NTM0MDQ4Nzgx.DPttTA.fZ7OY7e2K7lQXIGScrLQRIOykeE"
+  GITHUB_TOKEN: "f4a8cc2a08d9f7c92f5472a989a0295db4f70482"

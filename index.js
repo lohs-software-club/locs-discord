@@ -19,14 +19,9 @@ app.get('/', function (req, res) {
   res.redirect('https://github.com/lohs-software-club/locs-discord')
 })
 
-// pings server every 15 minutes to prevent dynos from sleeping
-setInterval(() => {
-  require('https').get('https://warm-thicket-74814.herokuapp.com/')
-}, 900000)
-
 app.listen(port, () => {
   // will echo 'Our app is running on http://localhost:5000 when run locally'
-  console.log('Our app is running on http://localhost:' + port)
+  console.log('App is running on port: ' + port)
 })
 
 /**
