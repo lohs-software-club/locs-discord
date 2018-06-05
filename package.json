@@ -13,7 +13,8 @@
     "standard": "^10.0.3"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "nohup node index.js > log.txt 2>&1 & echo $! > pid.txt",
+    "stop": "kill $(tail pid.txt)",
     "deploy": "gcloud app deploy"
   }
 }
